@@ -1,7 +1,7 @@
 #Add variables
 variable "default_tags" {
   default = {
-    "Owner" = "Prason"
+    "Owner" = "Group-1Project"
     "App"   = "Web"
   }
   type        = map(any)
@@ -10,7 +10,7 @@ variable "default_tags" {
 
 #Add variables
 variable "prefix" {
-  default     = "Group1-ACS730"
+  default     = ""
   type        = string
   description = "Name prefix"
 }

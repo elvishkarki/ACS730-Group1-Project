@@ -1,6 +1,6 @@
 
 # Module to deploy basic networking for nonProd(development) environment
-module "vpc-nonProd" {
+module "vpc-Prod" {
   source              = "../../../Group1-ACS730-FinalProject/modules/aws_network"
   env                 = var.env
   vpc_cidr            = var.vpc_cidr

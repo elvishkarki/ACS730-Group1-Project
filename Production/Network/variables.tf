@@ -11,7 +11,7 @@ variable "default_tags" {
 # Name prefix
 variable "prefix" {
   type        = string
-  default     = "dev"
+  default     = "Group1-ACS730"
   description = "Name prefix"
 }
 
@@ -38,7 +38,7 @@ variable "vpc_cidr" {
 
 # Variable to signal the current environment 
 variable "env" {
-  default     = "dev"
+  default     = "Production"
   type        = string
   description = "Deployment Environment"
 }
