@@ -34,3 +34,10 @@ variable "env" {
   type        = string
   description = "Deployment Environment"
 }
+
+#SSH key for all the VMs
+variable "SKey" {
+  default     = "ACS730-Group1-Key"
+  type        = string
+  description = "VM SSH key"
+}

@@ -1,7 +1,8 @@
- output "public_ip" {
-  value = aws_instance.acs73026.public_ip
- }
+# Output variables to show VM public and private ip addressess
+output "bastion_ip" {
+  value = module.vpc-Prod-server.public_ips[*]
+}
 
-# output "web_eip" {
-#   value = aws_eip.static_eip.public_ip
-# }
+output "private_ip" {
+  value = module.vpc-Prod-server.private_ips[*]
+}
