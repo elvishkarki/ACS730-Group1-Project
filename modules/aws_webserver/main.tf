@@ -3,7 +3,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
-# Step 12 - Data source for AMI id
+#Data source for AMI id
 data "aws_ami" "latest_amazon_linux" {
   owners      = ["amazon"]
   most_recent = true
