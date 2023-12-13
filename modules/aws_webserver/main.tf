@@ -31,7 +31,7 @@ resource "aws_instance" "privateAmazonVM" {
   key_name                    = aws_key_pair.web_key.key_name
   count                       = length(var.private_subnet_ids)
   subnet_id                   = var.private_subnet_ids[count.index]
-  security_groups             = [aws_security_group.web_sg.id]
+  security_groups             = [aws_security_group.web_sg_private.id]
   root_block_device {
     encrypted = var.env == "test" ? true : false
   }

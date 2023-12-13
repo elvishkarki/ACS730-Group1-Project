@@ -1,8 +1,8 @@
 
 # Security Group
-resource "aws_security_group" "web_sg" {
-  name        = "allow_http_ssh"
-  description = "Allow HTTP and SSH inbound traffic"
+resource "aws_security_group" "web_sg_private" {
+  name        = "allow_ssh"
+  description = "Allow SSH inbound traffic"
   vpc_id      = var.vpc_id
 
   ingress {
