@@ -59,11 +59,14 @@ resource "aws_instance" "publicAmazonVM" {
   root_block_device {
     encrypted = var.env == "test" ? true : false
   }
-  tags = count.index >= 2 ? (merge(local.default_tags,
+ tags = count.index >= 2 ? (merge(local.default_tags,
     {
       "Name" = "${var.prefix}-Vanilla-Amazon-Linux-${count.index}"
     }
-  )) : merge(local.default_tags,
+  )) : count.index == 1 ? merge(local.default_tags,
+    {
+      "Name" = "${var.prefix}-Amazon-Linux-BastionHost"
+    }) : merge(local.default_tags,
     {
       "Name" = "${var.prefix}-Amazon-Linux-${count.index}"
     })

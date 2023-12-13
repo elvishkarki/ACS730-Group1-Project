@@ -1,5 +1,5 @@
 ---
-- hosts: tag_Vanilla_Amazon-Linux-1,  tag_Vanilla_Amazon-Linux-2
+- hosts: tag_Vanilla_Amazon-Linux-1, tag_Vanilla_Amazon-Linux-2
   gather_facts: True
   become: yes
   
