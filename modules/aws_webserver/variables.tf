@@ -1,9 +1,10 @@
 # Instance type
 variable "instance_type" {
   default = {
-    "prod"        = "t2.micro"
+    "Production"  = "t2.micro"
+    "development" = "t2.micro"
+    "staging"     = "t2.micro"
     "test"        = "t2.micro"
-    "nonProd"     = "t2.micro"
   }
   description = "Type of the instance"
   type        = map(string)
