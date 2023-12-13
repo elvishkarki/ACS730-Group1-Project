@@ -1,5 +1,5 @@
 ---
-- hosts: tag_Vanilla_Amazon-Linux-1, tag_Vanilla_Amazon-Linux-2
+- hosts: tag_Group1_Vanilla_Amazon_Linux_2, tag_Group1_Vanilla_Amazon_Linux_3
   gather_facts: True
   become: yes
   
@@ -22,4 +22,4 @@
       
     - name: Copy index.html
       copy: src={{ source_file }} dest={{ dest_file }} mode=0555
-      notify: Restart Apache2
+      notify: Restart httpd
