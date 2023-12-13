@@ -1,4 +1,4 @@
-name: "Terraform - Staging"
+name: "Terraform - development"
 # https://gaunacode.com/deploying-terraform-at-scale-with-github-actions
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
   terraform:
     name: "Terraform"
     runs-on: ubuntu-latest
-    environment: Production
+    environment: development
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
