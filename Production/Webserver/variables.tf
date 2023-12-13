@@ -1,19 +1,8 @@
-# Instance type
-variable "instance_type" {
-  default = {
-    "prod"    = "t2.micro"
-    "test"    = "t2.micro"
-    "staging" = "t2.micro"
-    "dev"     = "t2.micro"
-  }
-  description = "Type of the instance"
-  type        = map(string)
-}
 
 # Default tags
 variable "default_tags" {
   default = {
-    "Owner" = "ACS730-Final Project"
+    "Owner" = "ACS730-Group1-Project"
     "App"   = "Web"
   }
   type        = map(any)
@@ -22,7 +11,7 @@ variable "default_tags" {
 
 # Prefix to identify resources
 variable "prefix" {
-  default     = "Group1-ACS730"
+  default     = "Group1"
   type        = string
   description = "Name prefix"
 }
@@ -30,7 +19,7 @@ variable "prefix" {
 
 # Variable to signal the current environment 
 variable "env" {
-  default     = "prod"
+  default     = "Production"
   type        = string
   description = "Deployment Environment"
 }

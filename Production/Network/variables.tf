@@ -1,7 +1,7 @@
 # Default tags
 variable "default_tags" {
   default = {
-    "Owner" = "rbot",
+    "Owner" = "ACS730-Group1-Project",
     "App"   = "Web"
   }
   type        = map(any)
@@ -11,7 +11,7 @@ variable "default_tags" {
 # Name prefix
 variable "prefix" {
   type        = string
-  default     = "Group1-ACS730"
+  default     = "Group1"
   description = "Name prefix"
 }
 
