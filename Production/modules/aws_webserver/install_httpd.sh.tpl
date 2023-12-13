@@ -2,6 +2,117 @@
 yum -y update
 yum -y install httpd
 myip=`curl http://169.254.169.254/latest/meta-data/local-ipv4`
-echo "<h1>Welcome to ACS730</h1><br>Built by Terraform!"  >  /var/www/html/index.html
+echo "<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        .header h1 {
+            color: #007bff;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .header h3 {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .text-muted {
+            color: #6c757d;
+        }
+
+        .team {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .img-block img {
+            border: 3px solid #007bff;
+            border-radius: 50%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .content h4 {
+            margin-top: 20px;
+            color: #343a40;
+            font-size: 18px;
+        }
+    </style>
+    <title>Meet Our Team</title>
+</head>
+<body>
+
+<section class="team text-center py-5">
+    <div class="container">
+        <div class="header my-5">
+            <h1>Meet our Team </h1>
+            <h3>Welcome to ACS Project Web Page!</h3>
+            <p class="text-muted">Group 1</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-3">
+                <div class="img-block mb-5">
+                    <img src="https://group1-project.s3.amazonaws.com/images/prason.jpg" class="img-fluid img-thumbnail" alt="Prason Giri">
+                    <div class="content mt-2">
+                        <h4>Prason Giri</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="img-block mb-5">
+                    <img src="https://group1-project.s3.amazonaws.com/images/adarsh.jpg" class="img-fluid img-thumbnail" alt="Adarsh Sharma">
+                    <div class="content mt-2">
+                        <h4>Adarsh Sharma</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="img-block mb-5">
+                    <img src="https://group1-project.s3.amazonaws.com/images/elvish.jpg" class="img-fluid img-thumbnail" alt="Elvish Karki">
+                    <div class="content mt-2">
+                        <h4>Elvish Karki</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="img-block mb-5">
+                    <img src="https://group1-project.s3.amazonaws.com/images/roshan.jpg" class="img-fluid img-thumbnail" alt="Roshan Bot">
+                    <div class="content mt-2">
+                        <h4>Roshan Bot</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="img-block mb-5">
+                    <img src="https://group1-project.s3.amazonaws.com/images/revathy.jpg" class="img-fluid img-thumbnail" alt="Revathy Selvaraj">
+                    <div class="content mt-2">
+                        <h4>Revathy Selvaraj</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-J1eBsr1jy6S+Xu4zBAju7feMl5j5Nq9e6sE9Myv5KFUpW/DYW3tOMY5PVIQzp"></script>
+
+</body>
+</html>"  >  /var/www/html/index.html
 sudo systemctl start httpd
 sudo systemctl enable httpd
