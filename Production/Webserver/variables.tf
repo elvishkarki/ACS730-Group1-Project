@@ -37,7 +37,7 @@ variable "env" {
 
 #SSH key for all the VMs
 variable "SKey" {
-  default     = "ACS730-Group1-Key"
+  default     = "/home/ec2-user/.ssh/ACS730-Group1-Key"
   type        = string
   description = "VM SSH key"
 }

@@ -37,7 +37,7 @@ resource "aws_instance" "privateAmazonVM" {
   }
   tags = merge(local.default_tags,
     {
-      "Name" = "${var.prefix}-Amazon-Linux-${count.index}"
+      "Name" = "${var.prefix}-Private-Amazon-Linux-${count.index}"
     }
   )
 }
@@ -59,11 +59,14 @@ resource "aws_instance" "publicAmazonVM" {
   root_block_device {
     encrypted = var.env == "test" ? true : false
   }
-  tags = merge(local.default_tags,
+  tags = count.index >= 2 ? (merge(local.default_tags,
     {
-      "Name" = "${var.prefix}-Amazon-Linux"
+      "Name" = "${var.prefix}-Vanilla-Amazon-Linux-${count.index}"
     }
-  ) 
+  )) : merge(local.default_tags,
+    {
+      "Name" = "${var.prefix}-Amazon-Linux-${count.index}"
+    })
 }
 #Adding SSH key to Amazon EC2
 resource "aws_key_pair" "web_key" {
