@@ -82,7 +82,7 @@ ansible-inventory -i aws_ec2.yaml --graph
 --Update ansible configuration
 sudo vi /etc/ansible/ansible.cfg
 --Execute ansible using dynamic inventory
-ansible-playbook -i aws_ec2.yaml  playbook3.yaml
+ansible-playbook -i aws_ec2.yaml  project1_playbook.yaml
 ```
 xviii. Now the final step is to delete the resources i.e., we now need to delete all the webservers and network. The webserver components should be deleted first before deleting the network or else we will be getting errors, or a few components will not be deleted and may increase the charge.
 Codes:
