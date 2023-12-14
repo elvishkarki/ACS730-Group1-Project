@@ -112,7 +112,7 @@ jobs:
             }
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/prod' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/development' && github.event_name == 'push'
         run: terraform apply -input=false tf.plan
         working-directory: ./development/Network # Use your environment folder
         shell: bash
@@ -211,7 +211,7 @@ jobs:
             }
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/prod' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/development' && github.event_name == 'push'
         run: terraform apply -input=false tf.plan
         working-directory: ./development/Webserver # Use your environment folder
         shell: bash       
