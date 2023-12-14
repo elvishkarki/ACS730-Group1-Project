@@ -1,5 +1,3 @@
-Absolutely! Here's the content formatted exactly as provided, suitable for a `readme.md` file:
-
 ---
 
 # SENECA
