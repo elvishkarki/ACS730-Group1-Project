@@ -11,9 +11,9 @@ data "terraform_remote_state" "subnets" {
 
 
 
-# module to deploy server from nonProd(development) environment
+# module to deploy server (development) environment
 module "vpc-Prod-server" {
-  source             = "../../../Group1-ACS730-FinalProject/Production/modules/aws_webserver"
+  source             = "../../../Group1-ACS730-FinalProject/development/modules/aws_webserver"
   env                = var.env
   vpc_id             = data.terraform_remote_state.subnets.outputs.vpc_id
   private_subnet_ids = data.terraform_remote_state.subnets.outputs.private_subnet_ids
