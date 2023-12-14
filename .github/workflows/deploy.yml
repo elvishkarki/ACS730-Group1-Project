@@ -1,17 +1,9 @@
 name: "Terraform - development"
 # https://gaunacode.com/deploying-terraform-at-scale-with-github-actions
 on:
-  push:
-    branches:
-    - development
-    paths:
-    - development/**
-
   pull_request:
     branches:
     - development
-    paths: 
-    - development/**
 
 permissions:
   contents: read
