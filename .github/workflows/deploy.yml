@@ -5,21 +5,21 @@ on:
     branches:
     - development
     paths:
-    - Production/**
+    - development/**
 
   pull_request:
     branches:
     - development
     paths: 
-    - Production/**
+    - development/**
 
 permissions:
   contents: read
   pull-requests: write
 
 jobs:
-  terraform:
-    name: "Terraform"
+  terraform-network:
+    name: "Terraform-Network"
     runs-on: ubuntu-latest
     environment: development
     env:
@@ -42,25 +42,25 @@ jobs:
         id: fmt
         run: terraform fmt 
         continue-on-error: true
-        working-directory: ./Production/Network
+        working-directory: ./development/Network
 
 
       - name: Terraform Init
         id: init
         run: terraform init
-        working-directory: ./Production/Network
+        working-directory: ./development/Network
 
            
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
-        working-directory: ./Production/Network
+        working-directory: ./development/Network
 
     
       - name: Terraform Plan
         id: plan
         run: terraform plan -input=false -no-color -out tf.plan
-        working-directory: ./Production/Network # Use your environment folder
+        working-directory: ./development/Network # Use your environment folder
         continue-on-error: true
 
       - name: Get result
@@ -69,7 +69,7 @@ jobs:
       - name: Terraform Show
         id: show
         run: terraform show -no-color tf.plan 2>&1 > /tmp/plan.txt
-        working-directory: ./Production/Network # Use your environment folder
+        working-directory: ./development/Network # Use your environment folder
           
       - uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
@@ -114,6 +114,6 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/prod' && github.event_name == 'push'
         run: terraform apply -input=false tf.plan
-        working-directory: ././Production/Network # Use your environment folder
+        working-directory: ./development/Network # Use your environment folder
         shell: bash
         
