@@ -1,5 +1,4 @@
----
-
+READme 
 # SENECA
 ## Final Project: Two-Tier web application automation with Terraform, Ansible, and GitHub Actions
 ### Cloud Automation and Control Systems
