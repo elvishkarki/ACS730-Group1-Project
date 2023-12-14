@@ -86,8 +86,8 @@ sudo vi /etc/ansible/ansible.cfg
 ansible-playbook -i aws_ec2.yaml  project1_playbook.yaml
 ```
 19. next check the Webserver in Vanilla linux by using its public IP.
-xviii. Display Webserver.
-20. Now the final step is to delete the resources i.e., we now need to delete all the webservers and network. The webserver components should be deleted first before deleting the network or else we will be getting errors, or a few components will not be deleted and may increase the charge.
+20.  Display Webserver.
+21. Now the final step is to delete the resources i.e., we now need to delete all the Webservers and Network. The Webserver components should be deleted first before deleting the network or else we will be getting errors, or a few components will not be deleted and may increase the charge.
 Codes:
 ```
 cd Production/webserver
