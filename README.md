@@ -63,7 +63,28 @@ logout
 ssh -i bastionKey ec2-user@private-ip- Group1-Private-Amazon-Linux-1
 SSH connection demonstrated from bastion host to private VMs in the same network.
 ```
-xiv. Now the final step is to delete the resources i.e., we now need to delete all the webservers and network. The webserver components should be deleted first before deleting the network or else we will be getting errors, or a few components will not be deleted and may increase the charge.
+
+xiv. logout from private instance, bastion host.
+
+xv. Now install Ansible
+xvi. change directory with command 
+```
+cd ..
+cd /Group1-ACS730-FinalProject/ansible
+sudo yum install ansible -y
+ansible --version
+```
+xvii. Now install a dynamic inventory 
+```
+sudo yum install python-boto3
+vi aws_ec2.yml
+ansible-inventory -i aws_ec2.yaml --graph
+--Update ansible configuration
+sudo vi /etc/ansible/ansible.cfg
+--Execute ansible using dynamic inventory
+ansible-playbook -i aws_ec2.yaml  playbook3.yaml
+```
+xviii. Now the final step is to delete the resources i.e., we now need to delete all the webservers and network. The webserver components should be deleted first before deleting the network or else we will be getting errors, or a few components will not be deleted and may increase the charge.
 Codes:
 ```
 cd Production/webserver
