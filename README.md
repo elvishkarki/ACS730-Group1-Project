@@ -18,19 +18,19 @@ READme
 - We will learn to apply security measures by implementing preventive and detective security controls. 
 
 ## Steps:
-i. Login to your GitHub account  
-ii. Open the link [https://github.com/elvishkarki/Group1-ACS730-FinalProject](https://github.com/elvishkarki/Group1-ACS730-FinalProject)  
-iii. You will see a green box with a code dropdown  
-iv. Use the command `git clone https://github.com/elvishkarki/Group1-ACS730-FinalProject.git`  
-v. Create an S3 bucket from the AWS portal with the same name as a config file.  
-vi. Check the name of S3 bucket from `Group1-ACS730-FinalProject -> Production -> Network -> config.tf` (from here we can find the name of the s3 bucket)   
-vii. Create SSH key pair with the command:
+1. Login to your GitHub account
+2.  Open the link [https://github.com/elvishkarki/Group1-ACS730-FinalProject](https://github.com/elvishkarki/Group1-ACS730-FinalProject)  
+3. You will see a green box with a code dropdown
+4. Use the command `git clone https://github.com/elvishkarki/Group1-ACS730-FinalProject.git`
+5. Create an S3 bucket from the AWS portal with the same name as a config file.
+6. Check the name of S3 bucket from `Group1-ACS730-FinalProject -> Production -> Network -> config.tf` (from here we can find the name of the s3 bucket)
+7.  Create SSH key pair with the command:
 ```
 ssh-keygen -f /home/ec2-user/.ssh/Group1Key
 ```
-viii. The next step is to deploy the infrastructure in production. Here we will be using terraform code.  
-ix. Now navigate to the respective folders based on the configuration you want to deploy. For example, to deploy in Production navigate to Production -> network, then deploy networking first and then webserver.  
-x. Commands to deploy:
+8. The next step is to deploy the infrastructure in production. Here we will be using terraform code.
+9. Now navigate to the respective folders based on the configuration you want to deploy. For example, to deploy in Production navigate to Production -> network, then deploy networking first and then webserver.
+10. Commands to deploy:
 ```
 cd Group1-ACS730-FinalProject/Production/Network
 terraform init
@@ -39,7 +39,7 @@ terraform validate
 terraform plan
 terraform apply –auto-approve
 ```
-xi. After the deployment of the network part, we have to deploy a webserver. Run this code to deploy Webserver.
+11. After the deployment of the network part, we have to deploy a webserver. Run this code to deploy Webserver.
 ```
 Cd ../Webserver
 terraform init
@@ -48,7 +48,8 @@ terraform validate
 terraform plan
 terraform apply –auto-approve
 ```
-xii. Now the infrastructure is deployed. Add ssh key in bastion vm to access VMs in Private subnet of same VPC.  
+12. you can only display Webserver in only first two using their respecctive IP.
+13. Now the infrastructure is deployed. Add ssh key in bastion vm to access VMs in Private subnet of same VPC.  
 ```
 #In Bastion host VM, run the following commands.
 nano Key
@@ -56,7 +57,7 @@ Copy RSA key, content from Key to nano editor for Key opened  in command line. C
 #Setting up permission of the file 'Key' to only read and write by owner to make it sure.
 chmod 600 Key
 ```
-xiii. Connect To private VMs, in the bastion host Linux command interface  
+14. Connect To private VMs, in the bastion host Linux command interface  
 ```
 ssh -i Key ec2-user@private-ip- Group1-Private-Amazon-Linux-0
 logout
@@ -64,17 +65,17 @@ ssh -i bastionKey ec2-user@private-ip- Group1-Private-Amazon-Linux-1
 SSH connection demonstrated from bastion host to private VMs in the same network.
 ```
 
-xiv. logout from private instance, bastion host.
+15. logout from private instance, bastion host.
 
-xv. Now install Ansible
-xvi. change directory with command 
+16. Now install Ansible
+17. change directory with command 
 ```
 cd ..
 cd /Group1-ACS730-FinalProject/ansible
 sudo yum install ansible -y
 ansible --version
 ```
-xvii. Now install a dynamic inventory 
+18. Now install a dynamic inventory 
 ```
 sudo yum install python-boto3
 vi aws_ec2.yml
@@ -84,7 +85,9 @@ sudo vi /etc/ansible/ansible.cfg
 --Execute ansible using dynamic inventory
 ansible-playbook -i aws_ec2.yaml  project1_playbook.yaml
 ```
-xviii. Now the final step is to delete the resources i.e., we now need to delete all the webservers and network. The webserver components should be deleted first before deleting the network or else we will be getting errors, or a few components will not be deleted and may increase the charge.
+19. next check the Webserver in Vanilla linux by using its public IP.
+xviii. Display Webserver.
+20. Now the final step is to delete the resources i.e., we now need to delete all the webservers and network. The webserver components should be deleted first before deleting the network or else we will be getting errors, or a few components will not be deleted and may increase the charge.
 Codes:
 ```
 cd Production/webserver
